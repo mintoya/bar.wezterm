@@ -90,7 +90,7 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   local title =
     index
     .. utilities._space(options.separator.left_icon, options.separator.space, nil)
-    .. tabs.get_title(tab).. 'hello'
+    .. tabs.get_title(tab)
 
   local width = conf.tab_max_width - offset
   if #title > conf.tab_max_width then
@@ -105,7 +105,6 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   end
 
   return {
-
     { Foreground = { Color = bg } },
     { Background = { Color = fg } },
     {Text = leftCircle},
