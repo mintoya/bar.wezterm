@@ -105,12 +105,17 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   end
 
   return {
-    { Foreground = { Color = bg } },
-    { Background = { Color = fg } },
-    {Text = leftCircle},
+
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
+    {Text = leftCircle},
+    { Foreground = { Color = bg } },
+    { Background = { Color = fg } },
     { Text = utilities._space(title, 0, 2) },
+
+    { Background = { Color = bg } },
+    { Foreground = { Color = fg } },
+    {Text = rightCircle},
   }
 end)
 
