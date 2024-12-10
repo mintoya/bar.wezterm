@@ -82,15 +82,19 @@ end
 wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   local palette = conf.resolved_palette
 
+  local leftCircle = ''
+  local rightCircle = ''
+
   local index = tab.tab_index + 1
   local offset = #tostring(index) + #options.separator.left_icon + (2 * options.separator.space) + 2
-  local title = index
+  local title =
+    index
     .. utilities._space(options.separator.left_icon, options.separator.space, nil)
-    .. tabs.get_title(tab)
+    .. tabs.get_title(tab).. 'hello'
 
   local width = conf.tab_max_width - offset
   if #title > conf.tab_max_width then
-    title = wez.truncate_right(title, width) .. "…"
+    title = wez.truncate_right(title, width-2) .. "…"
   end
 
   local fg = palette.tab_bar.inactive_tab.fg_color
@@ -101,6 +105,10 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   end
 
   return {
+
+    { Foreground = { Color = bg } },
+    { Background = { Color = fg } },
+    {Text = leftCircle},
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
     { Text = utilities._space(title, 0, 2) },
