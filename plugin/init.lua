@@ -94,7 +94,7 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
 
   local width = conf.tab_max_width - offset
   if #title > conf.tab_max_width then
-    title = wez.truncate_right(title, width-2) .. "…"
+    title = wez.truncate_right(title, width) .. "…"
   end
 
   local fg = palette.tab_bar.inactive_tab.fg_color
@@ -109,9 +109,10 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
     {Text = leftCircle},
+
     { Foreground = { Color = bg } },
     { Background = { Color = fg } },
-    { Text = utilities._space(title, 0, 2) },
+    { Text = utilities._space(title, 0, 0) },
 
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
