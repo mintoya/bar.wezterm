@@ -24,14 +24,14 @@ local function get_require_path()
 end
 
 package.path = package.path
-  .. ";"
-  .. plugin_dir
-  .. separator
-  .. get_require_path()
-  .. separator
-  .. "plugin"
-  .. separator
-  .. "?.lua"
+    .. ";"
+    .. plugin_dir
+    .. separator
+    .. get_require_path()
+    .. separator
+    .. "plugin"
+    .. separator
+    .. "?.lua"
 
 local utilities = require "bar.utilities"
 local config = require "bar.config"
@@ -88,9 +88,9 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   local index = tab.tab_index + 1
   local offset = #tostring(index) + #options.separator.left_icon + (2 * options.separator.space) + 2
   local title =
-    index
-    .. utilities._space(options.separator.left_icon, options.separator.space, nil)
-    .. tabs.get_title(tab)
+      index
+      .. utilities._space(options.separator.left_icon, options.separator.space, nil)
+      .. tabs.get_title(tab)
 
   local width = conf.tab_max_width - offset
   if #title > conf.tab_max_width then
@@ -106,17 +106,17 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
 
   return {
 
-    { Background = { Color = bg } },
-    { Foreground = { Color = fg } },
-    {Text = leftCircle},
-
-    { Foreground = { Color = bg } },
     { Background = { Color = fg } },
+    { Foreground = { Color = bg } },
+    { Text = leftCircle },
+
+    { Foreground = { Color = fg } },
+    { Background = { Color = bg } },
     { Text = utilities._space(title, 0, 0) },
 
-    { Background = { Color = bg } },
-    { Foreground = { Color = fg } },
-    {Text = rightCircle},
+    { Background = { Color = fg } },
+    { Foreground = { Color = bg } },
+    { Text = rightCircle },
   }
 end)
 
@@ -214,7 +214,7 @@ wez.on("update-status", function(window, pane)
       table.insert(right_cells, { Foreground = { Color = palette.brights[1] } })
       table.insert(right_cells, {
         Text = utilities._space(options.separator.right_icon, options.separator.space, nil)
-          .. options.modules[name].icon,
+            .. options.modules[name].icon,
       })
       table.insert(right_cells, { Text = utilities._space(options.separator.field_icon, options.separator.space, nil) })
     end
