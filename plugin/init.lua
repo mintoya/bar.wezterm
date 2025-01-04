@@ -97,8 +97,8 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
     title = wez.truncate_right(title, width) .. "…"
   end
 
-  local fg = palette.tab_bar.inactive_tab.fg_color
-  local bg = palette.tab_bar.inactive_tab.bg_color
+  local bg = palette.tab_bar.inactive_tab.fg_color
+  local fg = palette.tab_bar.inactive_tab.bg_color
   if tab.is_active then
     fg = palette.tab_bar.active_tab.fg_color
     bg = palette.tab_bar.active_tab.bg_color
